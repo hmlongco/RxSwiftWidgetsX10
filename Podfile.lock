@@ -1,0 +1,39 @@
+PODS:
+  - Resolver (1.0.7)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - RxSwiftWidgets (0.5.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+
+DEPENDENCIES:
+  - Resolver (~> 1.0)
+  - RxCocoa (~> 5.0)
+  - RxSwift (~> 5.0)
+  - RxSwiftWidgets (from `.`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Resolver
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+
+EXTERNAL SOURCES:
+  RxSwiftWidgets:
+    :path: "."
+
+SPEC CHECKSUMS:
+  Resolver: da30396fcabb46790959209430a4a0a9e6e39849
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxSwiftWidgets: c69280988082b88eca26083fb092a911bc9057f0
+
+PODFILE CHECKSUM: 262ebc29b6a0b5d5688eb00591f0039e21381ec2
+
+COCOAPODS: 1.5.3
