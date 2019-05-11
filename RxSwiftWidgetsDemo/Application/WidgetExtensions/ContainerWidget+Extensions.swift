@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxSwiftWidgets
 
 extension ContainerWidget {
     public static func section(_ child: Widget) -> ContainerWidget {

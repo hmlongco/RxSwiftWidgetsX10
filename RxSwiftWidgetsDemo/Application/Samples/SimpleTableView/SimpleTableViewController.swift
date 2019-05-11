@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxSwiftWidgets
 
 class SimpleTableViewController: UIViewController {
 

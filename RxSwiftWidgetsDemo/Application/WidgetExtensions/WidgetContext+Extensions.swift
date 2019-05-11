@@ -8,10 +8,13 @@
 
 import UIKit
 import RxSwift
+import RxSwiftWidgets
 
-extension WidgetContext {
+public extension WidgetContext {
 
-    public static func defaultContext() -> WidgetContext {
+    // MARK: - Lifecycle
+
+    static func defaultContext() -> WidgetContext {
         var context = WidgetContext()
 
         context.setProperty(WidgetPropertyTextFont(font: Style.shared.textFont))

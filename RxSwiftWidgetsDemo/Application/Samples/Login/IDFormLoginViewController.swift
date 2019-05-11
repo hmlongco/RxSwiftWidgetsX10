@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import RxSwiftWidgets
+
 
 class IDFormLoginViewController: UIViewController {
 

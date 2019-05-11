@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxSwiftWidgets
 
 extension RowWidget {
     static func nameWidgetRow(name: String, widget: Widget) -> RowWidget {

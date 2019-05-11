@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxSwiftWidgets
 
 extension ImageWidget {
     public static func round(size: CGFloat) -> ImageWidget {

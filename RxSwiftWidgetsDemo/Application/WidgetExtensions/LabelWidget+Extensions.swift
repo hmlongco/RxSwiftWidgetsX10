@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxSwiftWidgets
 
 extension LabelWidget {
     public static func footnote() -> LabelWidget {
