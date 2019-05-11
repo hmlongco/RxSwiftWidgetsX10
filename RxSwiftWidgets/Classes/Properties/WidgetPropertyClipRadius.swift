@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyClipRadius: WidgetPropertyApplying {
     static public var key = "WidgetPropertyClipRadius"
     public var clipRadius: CGFloat
+    public init(clipRadius: CGFloat) {
+        self.clipRadius = clipRadius
+    }
     public func apply(to widget: Widget, with context: WidgetContext) {
         guard let view = widget.view else { return }
         view.clipsToBounds = true

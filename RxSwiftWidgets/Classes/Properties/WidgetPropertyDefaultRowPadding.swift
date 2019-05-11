@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyDefaultRowPadding: WidgetProperty {
     static public var key = "WidgetPropertyDefaultRowPadding"
     public var padding: WidgetPadding
+    public init(padding: WidgetPadding) {
+        self.padding = padding
+    }
 }
 
 public protocol WidgetPropertyDefaultRowPaddingSupported {

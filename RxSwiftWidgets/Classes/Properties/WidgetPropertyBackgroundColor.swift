@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyBackgroundColor: WidgetPropertyApplying {
     static public var key = "WidgetPropertyBackgroundColor"
     public var color: UIColor
+    public init(color: UIColor) {
+        self.color = color
+    }
     public func apply(to widget: Widget, with context: WidgetContext) {
        widget.view?.backgroundColor = color
     }

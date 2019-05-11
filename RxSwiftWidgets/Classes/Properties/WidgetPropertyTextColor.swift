@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyTextColor: WidgetProperty {
     static public var key = "WidgetPropertyTextColor"
     public var color: UIColor
+    public init(color: UIColor) {
+        self.color = color
+    }
 }
 
 public protocol WidgetPropertyTextColorSupported {

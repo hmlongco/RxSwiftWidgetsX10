@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyAlpha: WidgetPropertyApplying {
     static public var key = "WidgetPropertyAlpha"
     public var alpha: CGFloat
+    public init(alpha: CGFloat) {
+        self.alpha = alpha
+    }
     public func apply(to widget: Widget, with context: WidgetContext) {
         guard let view = widget.view else { return }
         view.alpha = alpha

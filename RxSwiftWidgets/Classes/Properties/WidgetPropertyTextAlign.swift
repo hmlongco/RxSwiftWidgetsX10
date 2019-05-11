@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyTextAlign: WidgetProperty {
     static public var key: String = "WidgetPropertyTextAlign"
     public var alignment: NSTextAlignment
+    public init(alignment: NSTextAlignment) {
+        self.alignment = alignment
+    }
 }
 
 public protocol WidgetPropertyTextAlignSupported {

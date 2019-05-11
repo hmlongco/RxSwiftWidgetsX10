@@ -19,6 +19,8 @@ public struct WidgetContext: WidgetPropertyProviding {
 
     public var disposeBag = DisposeBag()
 
+    public init() {}
+
     public func newContext(for widget: Widget) -> WidgetContext {
         var context = self
         context.parent = WidgetContextBox(self)

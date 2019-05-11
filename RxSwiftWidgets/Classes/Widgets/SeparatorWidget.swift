@@ -12,7 +12,7 @@ import RxSwift
 
 open class SeparatorWidget: WidgetBase<UIView> {
 
-    override init() {
+    override public init() {
         super.init()
         _ = height(0.5)
     }

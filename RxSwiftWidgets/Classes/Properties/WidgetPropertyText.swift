@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyText: WidgetProperty {
     static public var key: String = "WidgetPropertyText"
     public var text: String?
+    public init(text: String?) {
+        self.text = text
+    }
 }
 
 public protocol WidgetPropertyTextSupported {
@@ -32,6 +35,9 @@ public extension WidgetPropertyTextSupported where Self : Widget {
 public struct WidgetPropertyTextBinding: WidgetProperty {
     static public var key: String = "WidgetPropertyTextBinding"
     public var observable: Observable<String>
+    public init(observable: Observable<String>) {
+        self.observable = observable
+    }
 }
 
 public protocol WidgetPropertyTextBindingSupported {
@@ -48,6 +54,9 @@ public extension WidgetPropertyTextBindingSupported where Self : Widget {
 public struct WidgetPropertyOptionalTextBinding: WidgetProperty {
     static public var key: String = "WidgetPropertyOptionalTextBinding"
     public var observable: Observable<String?>
+    public init(observable: Observable<String?>) {
+        self.observable = observable
+    }
 }
 
 public protocol WidgetPropertyOptionalTextBindingSupported {

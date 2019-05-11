@@ -21,7 +21,7 @@ open class TableViewListWidget<Item>: WidgetBase<UITableView> {
     public var selected: ItemAction?
     public var refresh: ((_ refreshControl: UIRefreshControl) -> Void)?
 
-    init(_ builder: ObservableListBuilder<Item>) {
+    public init(_ builder: ObservableListBuilder<Item>) {
         self.builder = builder
         super.init()
     }

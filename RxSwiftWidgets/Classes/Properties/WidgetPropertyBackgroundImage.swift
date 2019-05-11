@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyBackgroundImage: WidgetProperty {
     static public var key = "WidgetPropertyBackgroundImage"
     public var image: UIImage?
+    public init(image: UIImage?) {
+        self.image = image
+    }
 }
 
 public protocol WidgetPropertyBackgroundImageSupported {

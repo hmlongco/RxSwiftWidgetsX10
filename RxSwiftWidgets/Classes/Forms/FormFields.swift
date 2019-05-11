@@ -15,12 +15,12 @@ open class FormFields: FormValidating {
     var list: [FormField]
     var lookup: [Int:FormField] = [:]
 
-    init(_ fields: FormField...) {
+    public init(_ fields: FormField...) {
         list = fields
         fields.forEach { lookup[$0.id] = $0 }
     }
 
-    public var isValid: Bool {
+    open var isValid: Bool {
         return list.reduce(true, { $1.isValid && $0 })
     }
 

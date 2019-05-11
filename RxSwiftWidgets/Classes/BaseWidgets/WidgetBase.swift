@@ -22,7 +22,10 @@ open class WidgetBase<View:UIView>: Widget {
     public var width: WidgetWidth?
 
     public var with: ((_ view: View, _ context: WidgetContext) -> Void)?
-    
+
+    // MARK: - Lifecycle
+
+    public init() {}
 
     // MARK: - Property Management
 

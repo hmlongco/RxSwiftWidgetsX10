@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyTextFont: WidgetProperty {
     static public var key = "WidgetPropertyTextFont"
     public var font: UIFont
+    public init(font: UIFont) {
+        self.font = font
+    }
 }
 
 public protocol WidgetPropertyTextFontSupported {

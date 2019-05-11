@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyHidden: WidgetPropertyApplying {
     static public var key = String(describing: WidgetPropertyHidden.self)
     public var hidden: Bool
+    public init(hidden: Bool) {
+        self.hidden = hidden
+    }
     public func apply(to widget: Widget, with context: WidgetContext) {
         guard let view = widget.view else { return }
         view.isHidden = hidden

@@ -17,6 +17,7 @@ target 'RxSwiftWidgetsDemo' do
   use_frameworks!
   
   pod 'RxSwiftWidgets', :path => '.'
+  
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
   pod 'Resolver', '~> 1.0'

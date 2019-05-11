@@ -15,11 +15,11 @@ open class FormField: FormValidating {
     public var id = 0
     public var name: String?
 
-    init(_ id: Int = 0) {
+    public init(_ id: Int = 0) {
         self.id = id
     }
 
-    convenience init<T>(_ id: T) where T: RawRepresentable, T.RawValue == Int {
+    convenience public init<T>(_ id: T) where T: RawRepresentable, T.RawValue == Int {
         self.init(id.rawValue)
         self.name = "\(id)"
     }

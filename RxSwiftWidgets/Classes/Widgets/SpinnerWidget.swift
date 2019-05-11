@@ -14,7 +14,7 @@ open class SpinnerWidget: WidgetBase<UIActivityIndicatorView> {
 
     var color: UIColor = .gray
 
-    override init() {
+    override public init() {
         super.init()
     }
 

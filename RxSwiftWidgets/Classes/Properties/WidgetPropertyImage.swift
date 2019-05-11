@@ -14,6 +14,9 @@ import RxSwift
 public struct WidgetPropertyImage: WidgetPropertyApplying {
     static public var key = "WidgetPropertyImage"
     public var image: UIImage?
+    public init(image: UIImage?) {
+        self.image = image
+    }
     public func apply(to widget: Widget, with context: WidgetContext) {
         guard let view = widget.view as? UIImageView else { return }
         view.image = image
@@ -36,6 +39,9 @@ public extension WidgetPropertyImageSupported where Self : Widget {
 public struct WidgetPropertyImageNamed: WidgetPropertyApplying {
     static public var key = "WidgetPropertyImageNamed"
     public var name: String?
+    public init(name: String?) {
+        self.name = name
+    }
     public func apply(to widget: Widget, with context: WidgetContext) {
         guard let view = widget.view as? UIImageView, let name = name else { return }
         view.image = UIImage(named: name)
@@ -58,6 +64,9 @@ public extension WidgetPropertyImageNamedSupported where Self : Widget {
 public struct WidgetPropertyImageBinding: WidgetPropertyApplying {
     static public var key = "WidgetPropertyImageBinding"
     public var observable: Observable<UIImage?>
+    public init(observable: Observable<UIImage?>) {
+        self.observable = observable
+    }
     public func apply(to widget: Widget, with context: WidgetContext) {
         guard let view = widget.view as? UIImageView else { return }
         observable.bind(to: view.rx.image).disposed(by: context.disposeBag)
