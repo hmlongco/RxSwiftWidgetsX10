@@ -46,11 +46,11 @@ class IDFormLoginViewModel {
     lazy var state = ObservableState<Actions, State>(initialState: .initial) { [unowned self] action in
         switch action {
         case .login:
-            return self.login()
+            return self.login(self.fields)
         }
     }
 
-    func login() -> Observable<State> {
+    func login(_ fields: FormFields) -> Observable<State> {
         guard let username = fields[ID.username]?.text, let password = fields[ID.password]?.text, fields.isValid else {
             return .just(.error("Username and password are required."))
         }

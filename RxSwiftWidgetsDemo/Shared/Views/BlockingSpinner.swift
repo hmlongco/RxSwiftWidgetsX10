@@ -20,6 +20,7 @@ class BlockingSpinner: NSObject {
     private let window: UIWindow
     private let spinner: UIActivityIndicatorView
     private var referenceCount: Int = 0
+    private var mutex = pthread_mutex_t()
 
     override init() {
         window = BlockingSpinner.constructWindow()
@@ -70,35 +71,34 @@ class BlockingSpinner: NSObject {
     }
 
     func startAnimating() {
+        referenceCount += 1
+        guard self.referenceCount > 0 && self.window.isHidden else { return }
         OperationQueue.main.addOperation {
-            if self.window.isHidden {
-                self.window.frame = UIScreen.main.bounds
-                self.window.setNeedsLayout()
-
-                self.spinner.startAnimating()
-
-                self.view.alpha = 0
-                UIView.animate(withDuration: 0.4) {
-                    self.view.alpha = 1
-                }
-
-                self.window.isHidden = false
+            guard self.referenceCount > 0 && self.window.isHidden else { return }
+            self.window.frame = UIScreen.main.bounds
+            self.window.setNeedsLayout()
+            self.spinner.startAnimating()
+            self.view.alpha = 0
+            UIView.animate(withDuration: 0.4) {
+                self.view.alpha = 1
             }
-            self.referenceCount += 1
+            self.window.isHidden = false
         }
     }
 
     func stopAnimating() {
+        guard referenceCount > 0 else { return }
+        referenceCount -= 1
+        guard self.referenceCount == 0 && self.window.isHidden == false else { return }
         OperationQueue.main.addOperation {
-            self.referenceCount = max(self.referenceCount - 1, 0)
-            if self.referenceCount == 0 {
-                self.spinner.stopAnimating()
-                self.window.isHidden = true
-            }
+            guard self.referenceCount == 0 && self.window.isHidden == false else { return }
+            self.spinner.stopAnimating()
+            self.window.isHidden = true
         }
     }
 
     func hide() {
+        guard referenceCount > 0 else { return }
         OperationQueue.main.addOperation {
             self.spinner.stopAnimating()
             self.window.isHidden = true

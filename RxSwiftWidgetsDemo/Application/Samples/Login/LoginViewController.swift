@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
                             .text(viewModel.rememberedUsername)
                             .text(font: .title3)
                             .onTextChanged({ [unowned self] (text) in
-                                self.viewModel.state.next(.updatedUsername(text ?? ""))
+                                self.viewModel.state.next(.updateUsername(text ?? ""))
                             })
                             .with({ field, _ in
                                 field.textContentType = .username
@@ -110,7 +110,7 @@ class LoginViewController: UIViewController {
                             .placeholder("Password")
                             .text(font: .title3)
                             .onTextChanged({ [unowned self] (text) in
-                                self.viewModel.state.next(.updatedPassword(text ?? ""))
+                                self.viewModel.state.next(.updatePassword(text ?? ""))
                             })
                             .with({ field, _ in
                                 field.textContentType = .password

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		018070094740730304855B3A /* Pods_RxSwiftWidgetsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026A64D8D25FD717E2664F71 /* Pods_RxSwiftWidgetsDemo.framework */; };
+		4CA4C8D4228B19D200407613 /* StructLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4C8D3228B19D200407613 /* StructLoginViewModel.swift */; };
 		4CF9838E228343B800FEC327 /* RxSwiftWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CF98384228343B700FEC327 /* RxSwiftWidgets.framework */; };
 		4CF98393228343B800FEC327 /* RxSwiftWidgetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF98392228343B800FEC327 /* RxSwiftWidgetsTests.swift */; };
 		4CF98395228343B800FEC327 /* RxSwiftWidgets.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CF98387228343B700FEC327 /* RxSwiftWidgets.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -138,6 +139,7 @@
 		026A64D8D25FD717E2664F71 /* Pods_RxSwiftWidgetsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWidgetsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1AB1342091E7924007CDF6 /* Pods-RxSwiftWidgetsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftWidgetsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftWidgetsDemo/Pods-RxSwiftWidgetsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		1EC68081026594FA0C350ECB /* Pods_RxSwiftWidgets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftWidgets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CA4C8D3228B19D200407613 /* StructLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructLoginViewModel.swift; sourceTree = "<group>"; };
 		4CF98384228343B700FEC327 /* RxSwiftWidgets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwiftWidgets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF98387228343B700FEC327 /* RxSwiftWidgets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxSwiftWidgets.h; sourceTree = "<group>"; };
 		4CF98388228343B700FEC327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 			children = (
 				4CFA08802284FA8500F7317D /* FormLoginViewController.swift */,
 				4CFA08812284FA8500F7317D /* FormLoginViewModel.swift */,
+				4CA4C8D3228B19D200407613 /* StructLoginViewModel.swift */,
 				4CFA087F2284FA8500F7317D /* IDFormLoginViewController.swift */,
 				4CFA087D2284FA8500F7317D /* IDFormLoginViewModel.swift */,
 				4CFA08822284FA8500F7317D /* LoginViewController.swift */,
@@ -1022,6 +1025,7 @@
 				4CFA08952284FA8500F7317D /* UIView+Extensions.swift in Sources */,
 				4CFA08BC2284FA8500F7317D /* LabelWidget+Extensions.swift in Sources */,
 				4CFA08902284FA8500F7317D /* StateMachine.swift in Sources */,
+				4CA4C8D4228B19D200407613 /* StructLoginViewModel.swift in Sources */,
 				4CF983A5228344AF00FEC327 /* AppDelegate.swift in Sources */,
 				4CFA08B02284FA8500F7317D /* SimpleTableViewModel.swift in Sources */,
 				4CFA08B82284FA8500F7317D /* ContainerWidget+Extensions.swift in Sources */,

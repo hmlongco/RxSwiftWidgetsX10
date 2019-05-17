@@ -20,7 +20,7 @@ class MainViewModel {
 
     let samples = [
         Sample(name: "Account Information", type: AccountInfoViewController.self),
-        Sample(name: "Solutions Login", type: FormLoginViewController.self),
+        Sample(name: "Solutions Login", type: LoginViewController.self),
 //        Sample(name: "User Information", type: UserInfoViewController.self),
         Sample(name: "User List", type: SimpleTableViewController.self),
 //        Sample(name: "Layout Position", type: LayoutViewController.self),

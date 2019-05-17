@@ -1,5 +1,5 @@
 //
-//  EnumeratedState.swift
+//  ObservableState
 //  Widgets
 //
 //  Created by Michael Long on 5/1/19.
@@ -8,7 +8,14 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 import RxSwiftWidgets
+
+extension Observable {
+    static func constant(_ value: Element) -> Observable<Element> {
+        return BehaviorRelay(value: value).asObservable()
+    }
+}
 
 class ObservableState<Action, State> {
 
@@ -19,8 +26,9 @@ class ObservableState<Action, State> {
     private var state: Observable<State>!
 
     init(initialState: State, reduce: @escaping (_ action: Action) -> Observable<State>) {
+        self.currentState = initialState
         self.state = actions
-            .flatMapLatest { action in
+            .flatMapLatest { action -> Observable<State> in
                 return reduce(action)
             }
             .do(onNext: { [weak self] state in
@@ -29,6 +37,21 @@ class ObservableState<Action, State> {
             .observeOn(MainScheduler.instance)
             .share()
             .startWith(initialState)
+    }
+
+    init(initialState: State, reduce: @escaping (_ state: State, _ action: Action) -> Observable<State>) {
+        self.currentState = initialState
+        self.state = actions
+            .flatMapLatest { [weak self] action -> Observable<State>  in
+                guard let self = self else { return .empty() }
+                return reduce(self.currentState, action)
+            }
+            .do(onNext: { [weak self] state in
+                self?.currentState = state
+            })
+            .observeOn(MainScheduler.instance)
+            .share()
+            .startWith(currentState)
     }
 
     public func asObservable() -> Observable<State> {

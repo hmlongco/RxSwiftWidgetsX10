@@ -14,16 +14,16 @@ import RxSwiftWidgets
 class LoginViewModel {
 
     enum Actions {
-        case updatedUsername(String)
-        case updatedPassword(String)
+        case updateUsername(String)
+        case updatePassword(String)
         case login
     }
 
     enum State {
         case initial
-        case processing(Bool)
         case authenticated(User)
         case error(String)
+        case processing(Bool)
     }
 
     lazy var rememberedUsername = "hmlong"
@@ -36,12 +36,12 @@ class LoginViewModel {
     lazy var state = ObservableState<Actions, State>(initialState: .initial) { [weak self] action in
         if let self = self {
             switch action {
-            case let .updatedUsername(text):
+            case let .updateUsername(text):
                 self.username = text
-            case let .updatedPassword(text):
+            case let .updatePassword(text):
                 self.password = text
             case .login:
-                return self.login(self.username, self.password)
+                return self.processingSequence(self.login(self.username, self.password))
             }
         }
         return .empty()
@@ -51,12 +51,12 @@ class LoginViewModel {
         guard !username.isEmpty, !password.isEmpty else {
             return .just(.error("Username and password are required."))
         }
-        return .concat(
-            .just(.processing(true)),
-            User.login(username, password)
-                .map { .authenticated($0) }
-                .catchError { .just(.error($0.localizedDescription)) },
-            .just(.processing(false))
-        )
+        return User.login(username, password)
+            .map { .authenticated($0) }
+            .catchError { .just(.error($0.localizedDescription)) }
+    }
+
+    func processingSequence(_ observable: Observable<State>) -> Observable<State> {
+        return .concat(.just(.processing(true)), observable, .just(.processing(false)))
     }
 }
